@@ -1,6 +1,7 @@
 # INFO 550 Engagement Report
 
 Team Lead: Rachel Sagers
+
 Coders: Mengke Du, Nicole Hood, Mehar Anand
 
 ## Project Organization
