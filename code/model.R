@@ -23,7 +23,7 @@ var_label(data_1) <- list(video_n = "Total number of videos/week",
                           topic_n = "Total number of topics/week",
                           length = "Mean length of total video/week")
 
-model <- glm(
+model_1 <- glm(
   views ~ length + video_n + topic_n,
   data = data_1
 )
