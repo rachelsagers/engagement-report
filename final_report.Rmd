@@ -35,3 +35,11 @@ knitr::include_graphics(
   here::here("output/bar_plot.png")
 )
 ```
+
+```{r, plot-data}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_1.png")
+)
+```
