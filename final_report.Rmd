@@ -20,7 +20,7 @@ opts_chunk$set(
 #| fig.align = "center",
 #| out.width = "600px"
 knitr::include_graphics(
-  here::here("output/plot_1.png")
+  here::here("output/time_plot.png")
 )
 ```
 

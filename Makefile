@@ -6,10 +6,10 @@ report.html: render_final_report.R final_report.Rmd
 regression_table.rds: code/model.R
 	Rscript: code/model.R
 
-# Rules to build output from each coder will be added
+# Rules to build bar chart
 output/bar_plot.png: code/visual.R
 	Rscript code/visual.R
 	
-# Rule to build engagment over weeks
-output/plot_1.png: code/engage_time.R
+# Rule to build graph for engagement over weeks of class
+output/time_plot.png: code/engage_time.R
 	Rscript code/engage_time.R

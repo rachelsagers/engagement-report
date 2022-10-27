@@ -28,13 +28,13 @@ weeks_avg <- c(1,2,3,4,5,6)
 
 
 
-plot_1 <- plot(avg_length_videos_min,avg_views_6_weeks, xlab = "Average Weekly Length of Videos (Minutes)", ylab = "Average Weekly View Count", main = "Trends Displaying Data Science Toolkit Students Engagament Weekly", type = "h", col = "blue") +
+time_plot <- plot(avg_length_videos_min,avg_views_6_weeks, xlab = "Average Weekly Length of Videos (Minutes)", ylab = "Average Weekly View Count", main = "Trends Displaying Data Science Toolkit Students Engagament Weekly", type = "h", col = "blue") +
   points(avg_length_videos_min,avg_views_6_weeks, cex = 2, pch = 19, col ="blue")
 
-plot_1
+time_plot
 
 
-png("output/plot_1.png")
+png("output/time_plot.png")
 plot(avg_length_videos_min,avg_views_6_weeks, xlab = "Average Weekly Length of Videos (Minutes)", ylab = "Average Weekly View Count", main = "Trends Displaying Data Science Toolkit Students Engagament Weekly", type = "h", col = "blue") +
   points(avg_length_videos_min,avg_views_6_weeks, cex = 2, pch = 19, col = "blue")
 dev.off()
