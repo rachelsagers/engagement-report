@@ -24,3 +24,14 @@ regression_table <- readRDS(
 )
 regression_table
 ```
+
+# Visualization
+Below we report a bar plot of the total combined length of all videos for each of the INFO 550 lecture topics.
+
+```{r, plot-data}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/bar_plot.png")
+)
+```

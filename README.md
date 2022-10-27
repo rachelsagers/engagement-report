@@ -10,7 +10,7 @@ Coders: Mengke Du, Nicole Hood, Mehar Anand
 
 2. Generalized linear model summary table based on engagement based on topic, video number, and length
 
-3. Visualization of total length of all videos for each topic
+3. Visualization of total length of all videos for each topic as a bar chart
 
 ## Project Organization
 
@@ -20,7 +20,7 @@ The course engagement data used in project analyses is stored in the 'data' dire
 
 ### Code
 
-Code files for each analysis are be stored in the 'code' directory. The code to create the linear model summary table is stored in the 'model.R' file.
+Code files for each analysis are be stored in the 'code' directory. The code to create the linear model summary table is stored in the 'model.R' file. The code to produce the visualization plot can be found in the 'visual.R' file.
 
 ### Output
 
