@@ -1,0 +1,75 @@
+---
+title: "Engagement Time Trends"
+output: html_document
+date: "2022-10-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r message=FALSE, library-load, echo=FALSE}
+# load libraries
+
+library(ggplot2)
+library(data.table) #fast way to load csv data
+# load the data and create vectors
+engage_data <- fread("course_engagement.csv") #in conjunction with library(data.table to load csv)
+```
+
+```{r message=FALSE, create-data, echo=FALSE}
+#creating data variables
+a_val <- engage_data$unique_viewers
+b_val <- engage_data$length
+week_val <- engage_data$week
+views_val <- engage_data$views
+views_test <- views_val
+z_val <- engage_data$topic
+
+length_sec <- c(711,287,1076,3896,347,323,229,65,155,597,169,102,126,290,566,377,527,102,482,325,534,422,315,298,63,513,207,402,209,603,441,231,587,227,177,523,391,228,414,251,271,182,371,79,1163,488,405,176,505,277,369,565,451,465,492,160,578,449,281,296,456,390,184,439,458,532,277,272,83,202,405,185,379,118,163,350,517,472,313,143)
+
+len_sec <- c(711,287,1076,3896,347,323,229,65,155,597,169,102,126,290,566,377,527,102,482,325,534,422,315,298,63,513,207,402,209,603,441,231,587,227,177,523,391,228,414,251,271,182,371,79,1163,488,405,176,505,277,369,565,451,465,492,160,578,449,281,296,456,390,184,439,458,532,277,272,83,202,405,185,379,118,163,350,517,472,313,143)
+
+#average 10 views per length of video
+
+avg_views <- .colMeans(views_test, 10, length(views_test) / 10) 
+avg_sec <- .colMeans(len_sec, 10, length(len_sec) / 10)
+
+#engagement scatterplot
+
+avg_length_6_weeks <- c(621.77,363.53,275.91,447.44,329.81,312.24)
+
+avg_views_6_weeks <- c(39.92,59.16,57.45,53.22,52.36,44.94)
+
+avg_length_videos_min <- c(10.36,6.06,4.6,7.46,5.5,5.2)
+
+weeks_avg <- c(1,2,3,4,5,6)
+
+
+#length_val <- as.POSIXct(length_num, format = '%H:M:%S') #ask David
+
+  # Convert one variable to numeric
+
+```
+
+
+
+```{r message=FALSE, scatterplot, echo=FALSE}
+plot_1 <- plot(avg_length_videos_min,avg_views_6_weeks, xlab = "Average Weekly Length of Videos (Minutes)", ylab = "Average Weekly View Count", main = "Trends Displaying Data Science Toolkit Students Engagament Weekly", type = "h", col = "blue") +
+points(avg_length_videos_min,avg_views_6_weeks, cex = 2, pch = 19, col ="blue")
+
+plot_1
+```
+
+```{r message=FALSE, line-chart-2, echo=FALSE}
+scatter_2 <- ggplot(engage_data, aes(x=len_sec, y=views_test)) + geom_point() + theme_linedraw() + geom_line(size = 1, alpha = 0.8, linetype = 1) + xlab("Length of Video (Seconds)") + ylab("Average Views") + ggtitle("Total Data Science Toolkit Views Per Video")
+
+scatter_2
+```
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
