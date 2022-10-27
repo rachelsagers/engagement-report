@@ -55,4 +55,7 @@ bar_plot
 
 ggsave(here::here("output/bar_plot.png"), 
        plot = bar_plot,
+       width = 10,
+       height = 8,
+       units = "in",
        device = "png")

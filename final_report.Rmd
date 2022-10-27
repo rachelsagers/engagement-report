@@ -18,7 +18,7 @@ opts_chunk$set(
 
 ```{r, line-chart}
 #| fig.align = "center",
-#| out.width = "600px"
+#| out.width = "500px"
 knitr::include_graphics(
   here::here("output/time_plot.png")
 )
@@ -40,7 +40,7 @@ Below we report a bar plot of the total combined length of all videos for each o
 
 ```{r, plot-data}
 #| fig.align = "center",
-#| out.width = "600px"
+#| out.width = "500px"
 knitr::include_graphics(
   here::here("output/bar_plot.png")
 )
