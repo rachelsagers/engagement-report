@@ -14,6 +14,16 @@ opts_chunk$set(
 )
 ```
 
+# Time Trends Over Weeks of Class
+
+```{r, line-chart}
+#| fig.align = "center",
+#| out.width = "600px"
+knitr::include_graphics(
+  here::here("output/plot_1.png")
+)
+```
+
 # Regression Table
 
 This table displays a summary of the linear regression model with the variables mean length of video by week, total number of videos by week, and total number of topics by week.
@@ -33,13 +43,5 @@ Below we report a bar plot of the total combined length of all videos for each o
 #| out.width = "600px"
 knitr::include_graphics(
   here::here("output/bar_plot.png")
-)
-```
-
-```{r, line-chart}
-#| fig.align = "center",
-#| out.width = "600px"
-knitr::include_graphics(
-  here::here("output/plot_1.png")
 )
 ```
