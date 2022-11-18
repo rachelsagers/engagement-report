@@ -13,3 +13,12 @@ output/bar_plot.png: code/visual.R
 # Rule to build graph for engagement over weeks of class
 output/time_plot.png: code/engage_time.R
 	Rscript code/engage_time.R
+
+.PHONY: clean
+clean:
+	rm -f output/*.rds && rm -f report.html
+
+# Package environment synchronization rule
+.PHONY: install
+install:
+	Rscript -e "renv::restore(prompt=FALSE)"

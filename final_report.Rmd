@@ -40,7 +40,7 @@ Below we report a bar plot of the total combined length of all videos for each o
 
 ```{r, plot-data}
 #| fig.align = "center",
-#| out.width = "500px"
+#| out.width = "800px"
 knitr::include_graphics(
   here::here("output/bar_plot.png")
 )
