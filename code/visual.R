@@ -4,28 +4,32 @@ data <- read.csv(absolute_file_location, header = TRUE)
 
 library(ggplot2)
 
-# Replacing the ":" with a "." so that R can recognize it eventually as numeric variable
-data$length_sub <- gsub(":", ".", data$length) # trying to replace all the colons with a period and creating a new variable
-data$length_sub
-table(data$length_sub)
+convert_hh_mm_ss_to_numeric <- function(x){
+  split_x <- strsplit(x, split = ":")
+  get_minutes <- function(y){
+    y <- as.numeric(y)
+    if(length(y) == 1){
+      # assume it's seconds
+      y / 60
+    }else if(length(y) == 2){
+      y[1] + y[2]/60
+    }else if(length(y) == 3){
+      60 * y[1] + y[2] + y[3]/60
+    }else{
+      NA
+    }
+  }
+  minutes <- unlist(lapply(split_x, get_minutes))
+  return(minutes)
+}
 
-# Adding quotation marks 
-data$length_new <- gsub(",", "", data$length_sub)                        
-data$length_new                                                
-str(data$length_new)
-
-# Changing one value so that it can be summed later
-data$length_new[data$length_new == "1.04.56"] <- "62.5"
-
-# Turning the length variable into a numeric variable
-data$leng <- as.numeric(data$length_new)
-summary(data$leng)
+data$new_length <- convert_hh_mm_ss_to_numeric(data$length)
 
 library(dplyr)
 
 data %>% # creating a new variable that sums the total video length for each topic
       group_by(topic) %>%
-      mutate(sum_lengths = sum(leng)) -> data
+      mutate(sum_lengths = sum(new_length)) -> data
 
 summary(data$sum_lengths) # checking to see how many NAs there are
 
@@ -59,3 +63,4 @@ ggsave(here::here("output/bar_plot.png"),
        height = 8,
        units = "in",
        device = "png")
+
