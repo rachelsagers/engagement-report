@@ -8,6 +8,7 @@ library(gtsummary)
 library(lubridate)
 library(dplyr)
 library(labelled)
+library(car)
 
 # convert data
 data_1 <- data %>%
