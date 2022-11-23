@@ -37,21 +37,6 @@ summary(data$sum_lengths) # checking to see how many NAs there are
 bar_plot <- ggplot(data, aes(x = topic, y = sum_lengths, fill = topic)) + 
   geom_bar(position="dodge", stat="identity") +
   labs(x = "Topic" , y = "Length of Video (in minutes)", title = "Figure 1. INFO 550 Lecture Video Lengths by Topic") + 
-  scale_x_discrete(labels = c("Course Logistics", "Mac Install",
-                                  "Make", "Project Organization",
-                                  "RMarkdown", "Terminal",
-                                  "Windows Install")) +
-  scale_fill_manual(name = "Topics", labels = c('Course Logistics', 
-                                                "Mac Install",
-                                                "Make",
-                                                "Project Organization",
-                                                "RMarkdown",
-                                                "Terminal",
-                                                "Windows Install"),
-                    values = c('aquamarine', 'aquamarine3', 
-                               'lightseagreen', 'pink',
-                               'lightblue1', 'lightblue',
-                               'lightskyblue4')) +
   theme(plot.title = element_text(hjust = 0.5)) +
   theme_bw()
 
